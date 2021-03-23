@@ -1,0 +1,20 @@
+{
+  "name": "Task1_JS",
+  "version": "1.0.0",
+  "main": "variables.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YauhKaz/Tasks-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YauhKaz/Tasks-js/issues"
+  },
+  "homepage": "https://github.com/YauhKaz/Tasks-js#readme",
+  "description": ""
+}
