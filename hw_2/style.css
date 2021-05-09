@@ -269,19 +269,19 @@ li:hover .importantButton {
     html {
         font-size: 8px;
     }
-    li:hover .important {
-        background-size: 100%;
-        width: 100px;
-        height: 30px;
-        line-height: 1.6rem;
+    .header__wrapper {
+        width: 80%;
+    }
+    .submenu {
+        width: 80%;
+    }
+    .new-task {
+        width: 80%;
+    }
+    li {
+        width: 80%;
     }
     
-    li:hover .close {
-        background-size: 100%;
-        width: 30px;
-        height: 30px;
-        align-items: center;
-    }
 }
 
 @media (max-width: 550px) {
@@ -309,10 +309,3 @@ li:hover .importantButton {
     }
 }
 
-@media (max-width: 550px) {
-    li:hover .important {
-        width: 80px;
-        height: 20%;
-        line-height: 1.6rem;
-    }
-}
