@@ -3,10 +3,14 @@ let tasks=[];
 let j=0;
 localStorage.getItem(`count`) === null ? j = 0 : j = 1+Number(localStorage.getItem(`count`));
 let outputTask = {};
+//dom
 const buttonList = document.querySelectorAll('.submenu__button');
 const submenu = document.querySelector('.submenu');
 const list = document.querySelector('ul');
 const close = document.getElementsByClassName("close");
+const search = document.querySelector('.button_for_search');
+const searchClean = document.querySelector('.button_for_turn_back');
+console.log(search);
 //create localStorage datas
 if (j != 0){
     for (let i=0; i<=localStorage.getItem(`count`);i++) {
@@ -160,6 +164,54 @@ submenu.addEventListener('click', function(e) {
                     liList[i].style.display = "none";
                 }    
             } 
+        }      
+    }
+}, false);
+
+//search menu
+search.addEventListener('click', function(e) {
+    let searchValue = document.querySelector("#inputSearch").value;
+    let liList = document.querySelectorAll('li');
+    console.log(liList[0].childNodes[0].textContent);
+    console.log(submenu.childNodes[1].classList.contains('activeSubmenuButton'));
+    if (liList) {        
+        if (submenu.childNodes[1].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                liList[i].childNodes[0].textContent.includes(searchValue) ? liList[i].style.display = "flex" : liList[i].style.display = "none";   
+            } 
+        }
+        if (submenu.childNodes[3].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                (liList[i].childNodes[0].textContent.includes(searchValue) && !liList[i].childNodes[0].classList.contains('checked')) ? liList[i].style.display = "flex" : liList[i].style.display = "none";   
+            } 
+        }   
+        if (submenu.childNodes[5].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                (liList[i].childNodes[0].textContent.includes(searchValue) && liList[i].childNodes[0].classList.contains('checked')) ? liList[i].style.display = "flex" : liList[i].style.display = "none";   
+            }  
+        }      
+    }
+}, false);
+
+//clear search
+searchClean.addEventListener('click', function(e) {
+    document.querySelector("#inputSearch").value = '';
+    let liList = document.querySelectorAll('li');
+    if (liList) {        
+        if (submenu.childNodes[1].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                liList[i].style.display = "flex";   
+            } 
+        }
+        if (submenu.childNodes[3].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                !liList[i].childNodes[0].classList.contains('checked') ? liList[i].style.display = "flex" : liList[i].style.display = "none";   
+            } 
+        }   
+        if (submenu.childNodes[5].classList.contains('activeSubmenuButton')) {
+            for (let i=0; i<liList.length;i++) {
+                liList[i].childNodes[0].classList.contains('checked') ? liList[i].style.display = "flex" : liList[i].style.display = "none";   
+            }  
         }      
     }
 }, false);
