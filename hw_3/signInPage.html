@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>FilmGallery</title>
+</head>
+<body>
+    <section class="wrapper">
+        <header>
+            <a href="/index.html">
+                <img class="logo" src="/assets/home.png" alt="homepage">
+            </a>
+        </header>
+    </section>
+    <section class="signIn">
+        <p>
+            Sign In
+        </p>
+        <form class="signIn__form">
+            <div class="signIn__item">
+                <label for="email"> Email</label>
+                <input class="signMail" type="email" value='' placeholder="your@mail" required>
+            </div>
+            <div class="signIn__item">
+                <label for="Password"> Password</label>
+                <input class="signPassword" type="password" placeholder="Password" required>
+            </div>
+            <div class="signIn__buttons">
+                <input class="signIn__button signButton" type="button" value="Sign">
+                <input class="signIn__button registrationButton" type="button" value="Registration">
+            </div>
+        </form>
+    </section>
+    <script src='scriptSignIn.js'></script>
+</body>

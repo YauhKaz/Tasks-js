@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>FilmGallery</title>
+</head>
+<body>
+    <section class="wrapper">
+        <header>
+            <a href="/index.html">
+                <img class="logo" src="/assets/home.png" alt="homepage">
+            </a>
+        </header>
+    </section>
+    <section class="registration">
+        <h2>
+            Registration
+        </h2>
+        <form class="registration__form">            
+            <div class="registrationForm__item">
+                <label for="Name"> Name</label>
+                <input class="registrationForm__input" type="text" value="Name" required minlength="3">
+            </div> 
+            <div class="registrationForm__item">
+                <label for="Surname"> Surname</label>
+                <input class="registrationForm__input" value="Surname" placeholder="Surname" required minlength="3" maxlength="20">
+            </div> 
+            <div class="registrationForm__item">
+                <label for="Password"> Password</label>
+                <input class="registrationForm__input" type="text" value="******" required pattern=[A-Za-z0-9]{1,}>
+            </div> 
+            <div class="registrationForm__item">
+                <label for="Confirm password"> Confirm password</label>
+                <input class="registrationForm__input" type="text" value="******" required pattern=[A-Za-z0-9]{1,}>
+            </div> 
+            <div class="registrationForm__item">
+                <label for="Email"> Email</label>
+                <input class="registrationForm__input" type="email" value="your@mail" required pattern=[A-Za-z0-9]{1,}@[A-Za-z0-9]{1,}>  
+            </div> 
+            <div>
+                <input class="registrationForm__button signUp-button" type="button" value="Sign Up">
+                <input class="registrationForm__button clear-button" type="button" value="Clear">
+            </div>        
+        </form>
+        <script src="scriptRegistration.js"></script>
+    </section>
+</body>
