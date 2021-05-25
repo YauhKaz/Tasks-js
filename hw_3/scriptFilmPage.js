@@ -162,7 +162,7 @@ signButton.addEventListener('click', function() {
 function clickVoteOk() {
     userVoteOk.addEventListener('click', function() {
         checkUser();
-        if (Number(userVoteValue.value)>=0 && Number(userVoteValue.value<=9)) {
+        if ((Number(userVoteValue.value)>=0 && Number(userVoteValue.value) <= 9) || Number(userVoteValue.value) === 10) {
             let vote = userVoteValue.value;
             userVoteValue.value = vote;
             if (k < 0) {

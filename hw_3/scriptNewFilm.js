@@ -34,7 +34,7 @@ clearButton.addEventListener('click', function() {
     inputItems[2].value = 'Poster-part';
     inputItems[3].value = 0;
     inputItems[4].value = '2020-05-16';
-    inputItems[5].value = Genres;
+    inputItems[5].value = 'Genres';
     inputItems[6].value = 0;
     inputItems[7].value = 0;
 });
@@ -71,7 +71,7 @@ for (let i=0; i < inputItems.length; i++) {
         else check.popularity = true;
         if (!/[^A-Za-z]{4}-[^A-Za-z]{2}-[^A-Za-z]{2}/.exec(inputItems[4].value)) check.release = false;
         else check.release = true;
-        if (!/[0-9]{1}/.exec(inputItems[6].value)) check.average = false;
+        if (!((Number(inputItems[6].value)>=0 && Number(inputItems[6].value) <= 9)  || Number(inputItems[6].value) === 10)) check.average = false;
         else check.average = true;
         if (!/[^A-Za-z]{1,}/.exec(inputItems[7].value)) check.count = false;
         else check.count = true;
