@@ -22,9 +22,9 @@ let editionFilms = JSON.parse(localStorage.getItem('editionFilms'));
 let newFilm = JSON.parse(localStorage.getItem('newFilm'));
 let k=-1;
 if (editionFilms === null)
-            {
-                editionFilms=[];
-            } 
+    {
+        editionFilms=[];
+    } 
 
 
 if (filmsVote === null) {
@@ -185,24 +185,29 @@ signButton.addEventListener('click', function() {
 function clickVoteOk() {
     userVoteOk.addEventListener('click', function() {
         checkUser();
-        let vote = userVoteValue.value;
-        userVoteValue.value = vote;
-        if (k < 0) {
-            filmVote.userId = autorizationCheckId;
-            filmVote.filmTitle = filmInformation.title;
-            filmVote.userVote = vote;
-            filmVote.filmAverageVote = Math.floor((filmInformation.voteCount*filmInformation.voteAverage 
-                                        + Number(vote))/(filmInformation.voteCount+1)*10)/10;
-            filmVote.filmCount = Number(filmInformation.voteCount)+1;
-            filmPageInformation[6].innerHTML = filmVote.filmCount;
-            filmPageInformation[5].innerHTML = filmVote.filmAverageVote;
-            filmsVote.push(filmVote);
-            localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
+        if (Number(userVoteValue.value)>=0 && Number(userVoteValue.value<=9)) {
+            let vote = userVoteValue.value;
+            userVoteValue.value = vote;
+            if (k < 0) {
+                filmVote.userId = autorizationCheckId;
+                filmVote.filmTitle = filmInformation.title;
+                filmVote.userVote = vote;
+                filmVote.filmAverageVote = Math.floor((filmInformation.voteCount*filmInformation.voteAverage 
+                                            + Number(vote))/(filmInformation.voteCount+1)*10)/10;
+                filmVote.filmCount = Number(filmInformation.voteCount)+1;
+                filmPageInformation[6].innerHTML = filmVote.filmCount;
+                filmPageInformation[5].innerHTML = filmVote.filmAverageVote;
+                filmsVote.push(filmVote);
+                localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
+            }
+            else {
+                filmsVote[k].userVote = vote;
+                localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
+            }
         }
         else {
-            filmsVote[k].userVote = vote;
-            localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
-        }           
+            alert('please, change your vote');
+        }                   
     });
 }
 

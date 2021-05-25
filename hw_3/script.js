@@ -86,7 +86,9 @@ function loadPage(requestURL,sort_by,page){
     })
     .then(function(data) {
         for(let i=0; i < images.length; i++) {
-            images[i].src = `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`;   
+            images[i].src = `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`;  
+            if (data.results[/*j*filmOnPage+*/i].poster_path != null) images[i].src = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
+            else images[i].src = '/assets/w500null.png';  
             release_dates[i].textContent = `Data release: ${data.results[i].release_date}`;
             vote_ratings[i].textContent = `Vote rating: ${data.results[i].vote_average}`;
         }
@@ -108,7 +110,9 @@ function loadPage(requestURL,sort_by,page){
 //let filmOnPage = 20;
 function loadFilms(/*j,*/data) {
     for(let i=0; i < images.length; i++) {
-        images[i].src = images[i].src !== null ? `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage*/+i].poster_path}` : "/assets/no_image.png";   
+        if (data.results[2].poster_path != null) console.log(312);
+        if (data.results[/*j*filmOnPage+*/i].poster_path != null) filmInformation.image = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
+        else filmInformation.image = '/assets/w500null.png'; 
         release_dates[i].textContent = `Data release: ${data.results[/*j*filmOnPage*/+i].release_date}`;
         vote_ratings[i].textContent = `Vote rating: ${data.results[/*j*filmOnPage*/+i].vote_average}`;
     }
@@ -320,7 +324,8 @@ for (let i=0; i < choiseFilm.length; i++) {
                 filmInformation.releaseDate = data.results[/*j*filmOnPage+*/i].release_date;
                 filmInformation.voteAverage = data.results[/*j*filmOnPage+*/i].vote_average;
                 filmInformation.voteCount = data.results[/*j*filmOnPage+*/i].vote_count;
-                filmInformation.image = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
+                if (data.results[/*j*filmOnPage+*/i].poster_path != null) filmInformation.image = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
+                else filmInformation.image = '/assets/w500null.png';
             }            
             localStorage.setItem('filmInformation', JSON.stringify(filmInformation));
         })  
