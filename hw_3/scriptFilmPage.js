@@ -50,19 +50,6 @@ let filmVote = {
     filmCount: 0
 }
 
-//loadGenres function
-function loadGenres(genres, genreList) {
-    let result = '|';
-    for (let i=0; i < genres.length; i++) {
-        for (let j=0; j < genreList.length; j++){
-            if (genreList[j].id == genres[i]) {
-                result+=` ${genreList[j].name} |`;
-            } 
-        }
-    }
-    return result;
-}
-
 //load informations
 checkUser();
 if (k < 0) {
@@ -71,16 +58,6 @@ if (k < 0) {
 else {
     loadInfo();
     userVoteValue.value = filmsVote[k].userVote;
-}
-
-//checkFunction 
-function checkUser () {
-    k=-1;
-    for (let i=0; i < filmsVote.length; i++) {
-        if (filmsVote[i].filmTitle === filmInformation.title && filmsVote[i].userId === autorizationCheckId) {
-            k = i;
-        }
-    }
 }
 
 //admin
@@ -264,6 +241,29 @@ function loadInfo() {
             filmPageImage.src = `${filmInformation.image}`;
         }  
     }      
+}
+
+//loadGenres function
+function loadGenres(genres, genreList) {
+    let result = '|';
+    for (let i=0; i < genres.length; i++) {
+        for (let j=0; j < genreList.length; j++){
+            if (genreList[j].id == genres[i]) {
+                result+=` ${genreList[j].name} |`;
+            } 
+        }
+    }
+    return result;
+}
+
+//checkFunction 
+function checkUser () {
+    k=-1;
+    for (let i=0; i < filmsVote.length; i++) {
+        if (filmsVote[i].filmTitle === filmInformation.title && filmsVote[i].userId === autorizationCheckId) {
+            k = i;
+        }
+    }
 }
 
 

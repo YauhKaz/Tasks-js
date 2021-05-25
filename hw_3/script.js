@@ -110,9 +110,8 @@ function loadPage(requestURL,sort_by,page){
 //let filmOnPage = 20;
 function loadFilms(/*j,*/data) {
     for(let i=0; i < images.length; i++) {
-        if (data.results[2].poster_path != null) console.log(312);
-        if (data.results[/*j*filmOnPage+*/i].poster_path != null) filmInformation.image = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
-        else filmInformation.image = '/assets/w500null.png'; 
+        if (data.results[/*j*filmOnPage+*/i].poster_path != null) images[i].src = `https://image.tmdb.org/t/p/w500${data.results[/*j*filmOnPage+*/i].poster_path}`;
+        else images[i].src = '/assets/w500null.png'; 
         release_dates[i].textContent = `Data release: ${data.results[/*j*filmOnPage*/+i].release_date}`;
         vote_ratings[i].textContent = `Vote rating: ${data.results[/*j*filmOnPage*/+i].vote_average}`;
     }
