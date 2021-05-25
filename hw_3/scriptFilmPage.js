@@ -175,9 +175,11 @@ function clickVoteOk() {
                 filmPageInformation[6].innerHTML = filmVote.filmCount;
                 filmPageInformation[5].innerHTML = filmVote.filmAverageVote;
                 filmsVote.push(filmVote);
+                alert('Thanks for your vote');
                 localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
             }
             else {
+                alert('Thanks for your vote');
                 filmsVote[k].userVote = vote;
                 localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
             }
