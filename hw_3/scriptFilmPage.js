@@ -179,7 +179,7 @@ function clickVoteOk() {
                 localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
             }
             else {
-                alert('Thanks for your vote');
+                alert('Your vote was change, thank you');
                 filmsVote[k].userVote = vote;
                 localStorage.setItem('filmsVote', JSON.stringify(filmsVote));
             }
