@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>FilmGallery</title>
+</head>
+<body>
+    <section class="wrapper">
+        <header>
+            <a href="/index.html">
+                <img class="logo" src="/assets/home.png" alt="homepage">
+            </a>
+            <div class="header__authorization">
+                <span id="authorizationName">admin</span>
+                <button class="authorizationButton">Sign Out</button>
+            </div>
+        </header>
+    </section>
+    <form class="inputForm">
+        <div class="inputForm__items">
+            <label for="Title"> Title</label>
+            <input class="inputForm__item" type="text" value="Title" required minlength="3">
+        </div> 
+        <div class="inputForm__items">
+            <label for="Overview"> Overview</label>
+            <textarea class="inputForm__item" value="Overview" placeholder="Overview" required minlength="3" maxlength="150">Overview</textarea>
+        </div> 
+        <div class="inputForm__items">
+            <label for="Poster-part"> Poster</label>
+            <input class="inputForm__item" type="text" value="Poster-part" required>  
+        </div> 
+        <div class="inputForm__items">
+            <label for="Popularity"> Popularity</label>
+            <input class="inputForm__item" type="text" value="0" required pattern=[^A-Za-z]{1,}>
+        </div> 
+        <div class="inputForm__items">
+            <label for="Release date"> Release date [*format:yyyy-mm-dd]</label>
+            <input class="inputForm__item" type="text" value="2020-05-16" required pattern=[^A-Za-z]{4}-[^A-Za-z]{2}-[^A-Za-z]{2}>
+        </div> 
+        <div class="inputForm__items">
+            <label for="Genres"> Genres</label>
+            <input class="inputForm__item" type="text" value="Genres" required>
+        </div> 
+        <div class="inputForm__items">
+            <label for="Vote average"> Vote average</label>
+            <input class="inputForm__item" type="text" value="0" required pattern=[0-9]{1}|1[0]>
+        </div> 
+        <div class="inputForm__items">
+            <label for="Vote count"> Vote count</label>
+            <input class="inputForm__item" type="text" value="0" required pattern=[^A-Za-z]{1,}>
+        </div> 
+        <div class="inputForm__items">
+            <input class="inputForm__item" type="checkbox" name="Adult" value="Adult">
+            <label for="Adult"> Adult</label>
+        </div>        
+        <div>
+            <input id="addButton" class="inputForm__button" type="button" value="Add">
+            <input id="clearButton" class="inputForm__button" type="button" value="Clear">
+        </div>        
+    </form>
+    <script src="/scriptNewFilm.js"></script>
+</body>
